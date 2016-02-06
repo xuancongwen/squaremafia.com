@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$footer-height: 25px;
+
+// TODO: make responsive with multiple background images
+// TODO: ditch (totally free) stock image and go take my own photo
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  //@media only screen and (min-width: 1440px) {
+  background-size: 1440px;
+  background: image_url("goldengate_background_1440.jpg") no-repeat center -75px;
+  //}
+
+  //@media only screen and (min-width: 1200px) {
+  //  background: image_url("goldengate_background_1200.jpeg") no-repeat center center;
+  //  height: 797px;
+  //  width: 1200px;
+  //}
+  //
+  //
+  //@media only screen and (max-width: 320px) {
+  //  /*
+  //  TODO: Actually for this one we should probably use a static grey background
+  //   */
+  //  background: image_url("goldengate_background_320.jpeg") no-repeat center center;
+  //  height: 10px;
+  //  width: 454px;
+  //}
+  margin-bottom: $footer-height;
+}
+
+.app-navbar {
+  opacity: 0.7;
+  border-radius: 0;
+}
+
+.footer {
+  .text-muted {
+    margin: 0 0;
+  }
+
+  opacity: 0.5;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  background-color: $panel-default-heading-bg;
+}

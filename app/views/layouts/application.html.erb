@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SquaremafiaCom</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Square Mafia</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<%# TODO: only display if logged in %>
+<!--<nav class="navbar navbar-inverse navbar-default app-navbar">-->
+  <!--<div class="container-fluid">-->
+    <!--<div class="navbar-header">-->
+      <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
+        <!--<span class="sr-only">Toggle navigation</span>-->
+        <!--<span class="icon-bar"></span>-->
+        <!--<span class="icon-bar"></span>-->
+        <!--<span class="icon-bar"></span>-->
+      <!--</button>-->
+      <!--<a class="navbar-brand" href="<%= root_path %>">$SQ</a>-->
+    <!--</div>-->
+    <!--<div id="navbar" class="collapse navbar-collapse">-->
+      <!--<ul class="nav navbar-nav navbar-right">-->
+        <!--<li><a href="#login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</nav>-->
+
 <%= yield %>
 
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">Privately hosted and funded. <a href="mailto:adminAT-SYMBOLsquaremafiaDOTcom">Contact us</a>.</p>
+  </div>
+</footer>
 </body>
 </html>
