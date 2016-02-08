@@ -1,0 +1,1 @@
+server 'linode1.simo.so', user: 'squaremafia', roles: %w{app db web}
