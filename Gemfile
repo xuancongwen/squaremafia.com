@@ -10,13 +10,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'puma'
 gem 'therubyracer'
+gem 'sqlite3'
 
-group :production do
-  gem 'mysql2'
-end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug'
 end
 
