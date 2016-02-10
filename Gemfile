@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'puma'
 gem 'therubyracer'
 gem 'sqlite3'
+gem 'mailmanager'
 
 
 group :development, :test do

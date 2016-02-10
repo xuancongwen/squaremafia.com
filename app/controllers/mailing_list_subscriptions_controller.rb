@@ -13,7 +13,7 @@ class MailingListSubscriptionsController < ApplicationController
   end
 
   def destroy
-    current_user.mailing_lists.delete(MailingList.find(params.require(:list_id)))
+    current_user.mailing_lists.destroy(MailingList.find(params.require(:list_id)))
     flash[:success] = 'Unsubscribed!'
     redirect_to :back
   end
