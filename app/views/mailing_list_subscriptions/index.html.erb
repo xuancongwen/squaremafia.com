@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table table-responsive">
+          <thead>
+          <tr>
+            <th>List</th>
+            <th>Description</th>
+            <th>Action</th>
+            <th>Archives</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% (@all_lists & @subscribed_lists).sort_by(&:name).each do |list| %>
+              <tr class="info">
+                <td><%= list.group_email %></td>
+                <td><%= list.description %></td>
+                <td><a href="<%= delete_mailing_list_subscription_path(list) %>">Unsubscribe</a></td>
+                <td><a href="#">Archives</a></td>
+              </tr>
+          <% end %>
+
+          <% (@all_lists - @subscribed_lists).sort_by(&:name).each do |list| %>
+              <tr>
+                <td><%= list.group_email %></td>
+                <td><%= list.description %></td>
+                <td><a href="<%= new_mailing_list_subscription_path(list) %>">Subscribe</a></td>
+                <td><a href="#">Archives</a></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

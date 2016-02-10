@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   resources :users, except: [:destroy]
   get '/directory', to: 'users#index'
   get '/join', to: 'users#new'
+
+  get '/mailing_lists', to: 'mailing_list_subscriptions#index'
+  get '/mailing_list_subscriptions/:list_id/delete', to: 'mailing_list_subscriptions#destroy', as: :delete_mailing_list_subscription
+  get '/mailing_list_subscriptions/:list_id/new', to: 'mailing_list_subscriptions#new', as: :new_mailing_list_subscription
 end

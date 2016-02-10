@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20160210214711) do
   add_index "mailing_list_subscriptions", ["user_id"], name: "index_mailing_list_subscriptions_on_user_id"
 
   create_table "mailing_lists", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
