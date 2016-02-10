@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/join', to: 'user#create'
   get '/directory', to: 'user#directory'
   get '/profile', to: 'user#profile'
+  get '/slack', to: 'slack#show'
+  get '/slack/invite', to: 'slack#invite'
 end
