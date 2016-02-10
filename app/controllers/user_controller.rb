@@ -24,4 +24,12 @@ class UserController < ApplicationController
   def create
     # TODO
   end
+
+  def directory
+
+  end
+
+  def profile
+    
+  end
 end
