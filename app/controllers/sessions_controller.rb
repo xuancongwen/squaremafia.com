@@ -1,8 +1,10 @@
-class UserController < ApplicationController
-  def login
+class SessionsController < ApplicationController
+  before_filter :require_login, only: [:destroy]
+
+  def new
   end
 
-  def login_form
+  def create
     email = params.require(:email)
     password = params.require(:password)
 
@@ -12,24 +14,12 @@ class UserController < ApplicationController
       redirect_to :root
     else
       flash.now[:error] = 'Bad username or password.'
-      render :login
+      render :new
     end
   end
 
-  def logout
+  def destroy
     session[:user_id] = nil
     redirect_to :root
-  end
-
-  def create
-    # TODO
-  end
-
-  def directory
-
-  end
-
-  def profile
-    
   end
 end

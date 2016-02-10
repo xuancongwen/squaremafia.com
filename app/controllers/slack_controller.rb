@@ -2,7 +2,7 @@ require 'net/https'
 require 'uri'
 
 class SlackController < ApplicationController
-  before_filter :logged_in?
+  before_filter :require_login
 
   def show
   end
