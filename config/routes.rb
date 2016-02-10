@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#index'
-
-  scope '/user'  do
-    post '/login', to: 'user#login'
-    get '/logout', to: 'user#logout'
-    post '/create', to: 'user#create'
-  end
+  get '/login', to: 'user#login'
+  post '/login/form', to: 'user#login_form'
+  get '/logout', to: 'user#logout'
+  get '/join', to: 'user#create'
 end
