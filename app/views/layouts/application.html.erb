@@ -12,31 +12,42 @@
 </head>
 <body>
 
-<%# TODO: only display if logged in %>
-<!--<nav class="navbar navbar-inverse navbar-default app-navbar">-->
-  <!--<div class="container-fluid">-->
-    <!--<div class="navbar-header">-->
-      <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
-        <!--<span class="sr-only">Toggle navigation</span>-->
-        <!--<span class="icon-bar"></span>-->
-        <!--<span class="icon-bar"></span>-->
-        <!--<span class="icon-bar"></span>-->
-      <!--</button>-->
-      <!--<a class="navbar-brand" href="<%= root_path %>">$SQ</a>-->
-    <!--</div>-->
-    <!--<div id="navbar" class="collapse navbar-collapse">-->
-      <!--<ul class="nav navbar-nav navbar-right">-->
-        <!--<li><a href="#login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>-->
-      <!--</ul>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</nav>-->
+<% if logged_in? %>
+    <nav class="navbar navbar-inverse navbar-default app-navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<%= root_path %>">Square Mafia</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Foo</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="<%= logout_path %>"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<% end %>
+
+<div class="container" id="flash-messages">
+  <%= flash_messages %>
+</div>
 
 <%= yield %>
 
 <footer class="footer">
   <div class="container">
-    <p class="text-muted">Privately hosted and funded. <a href="mailto:adminAT-SYMBOLsquaremafiaDOTcom">Contact us</a>.</p>
+    <p class="text-muted">Privately hosted and funded. <a href="mailto:adminAT-SYMBOLsquaremafiaDOTcom">Contact us</a>.
+    </p>
   </div>
 </footer>
 </body>
