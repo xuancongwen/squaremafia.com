@@ -9,7 +9,6 @@
             <th>List</th>
             <th>Description</th>
             <th>Action</th>
-            <th>Archives</th>
           </tr>
           </thead>
           <tbody>
@@ -18,7 +17,6 @@
                 <td><%= list.group_email %></td>
                 <td><%= list.description %></td>
                 <td><a href="<%= delete_mailing_list_subscription_path(list) %>">Unsubscribe</a></td>
-                <td><a href="#">Archives</a></td>
               </tr>
           <% end %>
 
@@ -27,7 +25,6 @@
                 <td><%= list.group_email %></td>
                 <td><%= list.description %></td>
                 <td><a href="<%= new_mailing_list_subscription_path(list) %>">Subscribe</a></td>
-                <td><a href="#">Archives</a></td>
               </tr>
           <% end %>
           </tbody>
