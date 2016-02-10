@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206085445) do
+ActiveRecord::Schema.define(version: 20160210214711) do
+
+  create_table "mailing_list_subscriptions", id: false, force: :cascade do |t|
+    t.integer  "mailing_list_id", null: false
+    t.integer  "user_id",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "mailing_list_subscriptions", ["mailing_list_id", "user_id"], name: "all_unique", unique: true
+  add_index "mailing_list_subscriptions", ["mailing_list_id"], name: "index_mailing_list_subscriptions_on_mailing_list_id"
+  add_index "mailing_list_subscriptions", ["user_id"], name: "index_mailing_list_subscriptions_on_user_id"
+
+  create_table "mailing_lists", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            null: false
