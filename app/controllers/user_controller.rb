@@ -12,7 +12,7 @@ class UserController < ApplicationController
       redirect_to :root
     else
       flash.now[:error] = 'Bad username or password.'
-      render :login, params
+      render :login
     end
   end
 
