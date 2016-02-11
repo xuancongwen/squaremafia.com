@@ -16,7 +16,12 @@ class MailingListSubscription < ActiveRecord::Base
 
   def remove_from_mailman
     if Rails.env.production?
-      mailman_list.approved_delete_member(user.email)
+      begin
+        mailman_list.approved_delete_member(user.email)
+      rescue MailManager::MailmanExecuteError => e # ignore failure if they weren't a member anyway
+        return if e.message =~ /Mailman.Errors.NotAMemberError/
+        raise e
+      end
     else
       Rails.logger.warn "Skipping mailman call because we're not in production"
     end
