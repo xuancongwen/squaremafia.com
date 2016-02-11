@@ -12,7 +12,8 @@ gem 'puma'
 gem 'therubyracer'
 gem 'sqlite3'
 gem 'mailmanager'
-
+gem 'google-analytics-turbolinks'
+gem 'google-analytics-rails'
 
 group :development, :test do
   gem 'byebug'
