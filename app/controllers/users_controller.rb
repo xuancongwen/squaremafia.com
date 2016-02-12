@@ -33,6 +33,6 @@ class UsersController < ApplicationController
     rescue ActiveRecord::RecordInvalid => e
       flash[:error] = e.message
     end
-    redirect_to :user
+    redirect_to :back
   end
 end
