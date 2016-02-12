@@ -11,10 +11,10 @@ gem 'bootstrap-sass'
 gem 'puma'
 gem 'therubyracer'
 gem 'sqlite3'
-gem 'mailmanager'
 gem 'google-analytics-turbolinks'
 gem 'google-analytics-rails'
 gem 'phony_rails'
+gem 'open4'
 
 group :development, :test do
   gem 'byebug'
