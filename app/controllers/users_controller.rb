@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
     begin
-      p = params.require(:user).permit(:email, :phone, :password, :password_confirmation)
+      p = params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
       current_user.update_attributes!(p)
       flash[:success] = 'Your profile has been updated.'
     rescue ActiveRecord::RecordInvalid => e
