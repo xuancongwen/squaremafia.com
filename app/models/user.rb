@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
 
   phony_normalize :phone, default_country_code: 'US'
   validates_plausible_phone :phone, normalized_country_code: 'US'
+  validates :email, presence: true, format: /@/
 end
