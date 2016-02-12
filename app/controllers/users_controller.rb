@@ -28,7 +28,9 @@ class UsersController < ApplicationController
   def update
     begin
       p = params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
+      old_mail = current_user.email
       current_user.update_attributes!(p)
+      MailmanSyncJob.perform_later if p['email'] != old_mail
       flash[:success] = 'Your profile has been updated.'
     rescue ActiveRecord::RecordInvalid => e
       flash[:error] = e.message

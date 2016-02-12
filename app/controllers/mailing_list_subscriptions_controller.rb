@@ -7,13 +7,17 @@ class MailingListSubscriptionsController < ApplicationController
   end
 
   def new
-    MailingListSubscription.create!(user: current_user, mailing_list: MailingList.find(params.require(:list_id)))
+    list = MailingList.find(params.require(:list_id))
+    current_user.mailing_lists << list
+    MailmanSyncJob.perform_later(list.name)
     flash[:success] = 'Subscribed!'
     redirect_to :back
   end
 
   def destroy
-    current_user.mailing_lists.destroy(MailingList.find(params.require(:list_id)))
+    list = MailingList.find(params.require(:list_id))
+    current_user.mailing_lists.destroy(list)
+    MailmanSyncJob.perform_later(list.name)
     flash[:success] = 'Unsubscribed!'
     redirect_to :back
   end
