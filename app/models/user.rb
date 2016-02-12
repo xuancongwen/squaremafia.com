@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates_plausible_phone :phone, normalized_country_code: 'US'
   validates :email, presence: true, format: /@/
 
-  after_commit :queue_mailman_sync
+  after_save :queue_mailman_sync
 
   private
   def queue_mailman_sync
