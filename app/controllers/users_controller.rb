@@ -1,4 +1,3 @@
-
 class UsersController < ApplicationController
   before_filter :require_login, except: [:new, :create]
 
@@ -7,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create
@@ -15,7 +15,6 @@ class UsersController < ApplicationController
       flash[:success] = 'Success! You will be notified when approved.'
       redirect_to(:root)
     else
-      flash[:error] = @user.errors.to_a
       render :new
     end
   end
@@ -34,15 +33,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    begin
-      p = params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
-      old_mail = current_user.email
-      current_user.update_attributes!(p)
-      MailmanSyncJob.perform_later if p['email'] != old_mail
-      flash[:success] = 'Your profile has been updated.'
-    rescue ActiveRecord::RecordInvalid => e
-      flash[:error] = e.message
-    end
-    redirect_to :back
+    @user = current_user
+    p = params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
+    old_mail = @user.email
+    @user.update_attributes(p)
+    MailmanSyncJob.perform_later if p['email'] != old_mail
+    flash.now[:success] = 'Your profile has been updated.' unless @user.errors.any?
+    render :edit
   end
 end

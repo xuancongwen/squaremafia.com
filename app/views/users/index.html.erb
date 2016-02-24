@@ -17,7 +17,7 @@
                 <tr>
                   <td><%= u.name %></td>
                   <td><a href="mailto:<%= u.email %>"><%= u.email %></a></td>
-                  <td><a href="tel:<%= u.phone %>"><%= u.phone %></a></td>
+                  <td><a href="tel:<%= u.phone %>"><%= u.phone.try(:phony_formatted, {format: :international}) %></a></td>
                 </tr>
             <% end %>
             </tbody>
