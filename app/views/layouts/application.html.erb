@@ -28,16 +28,27 @@
       <ul class="nav navbar-nav">
         <li class="<%= 'active' if current_page?(root_path) %>"><a href="<%= root_path %>">About</a></li>
         <% if logged_in? %>
-            <li class="<%= 'active' if current_page?(edit_user_path(current_user)) %>"><a href="<%= edit_user_path(current_user) %>">Profile</a></li>
-            <li class="<%= 'active' if current_page?(directory_path) %>"><a href="<%= directory_path %>">Directory</a></li>
+            <li class="<%= 'active' if current_page?(edit_user_path(current_user)) %>">
+              <a href="<%= edit_user_path(current_user) %>">Profile</a></li>
+            <li class="<%= 'active' if current_page?(directory_path) %>"><a href="<%= directory_path %>">Directory</a>
+            </li>
             <li class="<%= 'active' if current_page?(slack_path) %>"><a href="<%= slack_path %>">Slack</a></li>
             <li class="<%= 'active' if current_page?(mailing_lists_path) %>"><a href="<%= mailing_lists_path %>">Mailing Lists</a></li>
-      <% else %>
+        <% else %>
             <li class="<%= 'active' if current_page?(new_user_path) %>"><a href="<%= new_user_path %>">Join</a></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
+            <% if current_user.admin? %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="<%= admin_approval_queue_path %>">Approval Queue</a></li>
+                  </ul>
+                </li>
+            <% end %>
+
             <li>
               <a href="<%= logout_path %>"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a>
             </li>

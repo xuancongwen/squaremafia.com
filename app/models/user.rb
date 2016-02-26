@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   validates_plausible_phone :phone, normalized_country_code: 'US'
   validates :email, presence: true, format: /@/
   validates :name, presence: true
+
+  enum role: [:queued_for_approval, :regular, :admin, :disabled]
 end
