@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation))
+    @user = User.new(params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation, :discipline, :sq_start_date, :sq_end_date))
     if verify_recaptcha(model: @user) && @user.save
       flash[:success] = 'Success! You will be notified when approved.'
       redirect_to(:root)

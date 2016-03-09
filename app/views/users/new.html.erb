@@ -1,17 +1,21 @@
 <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
+  <div class="col-md-offset-1 col-md-10">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Join</h3>
       </div>
       <div class="panel-body">
         <%= bootstrap_form_for(@user, layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-10') do |f| %>
-            <%= f.text_field :name, placeholder: 'Full Name' %>
             <%= f.email_field :email, placeholder: 'awesome@example.com' %>
-            <%= f.phone_field :phone, placeholder: '+1 (415) 555-5555' %>
             <%= f.password_field :password %>
             <%= f.password_field :password_confirmation %>
+
+            <%= f.text_field :name, placeholder: 'Full Name' %>
+            <%= f.phone_field :phone, placeholder: '+1 (415) 555-5555' %>
+            <%= f.text_field :discipline, placeholder: 'Engineer, Designer, Comms, Recruiter, Etc.' %>
+            <%= f.date_select :sq_start_date, discard_day: true, order: [:month, :year], start_year: 2009, end_year: Date.today.year, label: 'First Day' %>
+            <%= f.date_select :sq_end_date, discard_day: true, order: [:month, :year], start_year: 2009, end_year: Date.today.year, label: 'Last Day' %>
+
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <%= recaptcha_tags %>
