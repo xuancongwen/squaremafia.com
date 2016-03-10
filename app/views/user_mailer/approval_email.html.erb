@@ -1,0 +1,21 @@
+<p>
+  Hey <%= @user.name %>,
+</p>
+
+<p>
+  You've been approved!
+</p>
+
+<p>
+  You're ready to <%= link_to('sign in', login_url) %> and get started. Also check out:
+  <ol>
+  <li><%= link_to('Mailing lists', mailing_lists_url) %>. Just like the good 'ol days, when it was discuss@.</li>
+  <li><%= link_to('Slack', slack_url) %>. For those that prefer to chat.</li>
+  </ol>
+</p>
+
+<p>
+  Cheers,
+  <br />
+  - Square Mafia Admin
+</p>
