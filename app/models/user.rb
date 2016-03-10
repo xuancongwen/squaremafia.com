@@ -23,4 +23,6 @@ class User < ActiveRecord::Base
   validates_with TenureValidator
 
   enum role: [:queued_for_approval, :regular, :admin, :disabled]
+
+  scope :enabled, -> { where(role: %w(regular admin)) }
 end

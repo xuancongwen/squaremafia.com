@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_login, except: [:new, :create]
 
   def index
-    @users = User.all.order(:name)
+    @users = User.enabled.order(:name)
   end
 
   def new
