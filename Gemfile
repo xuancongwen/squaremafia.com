@@ -15,6 +15,9 @@ gem 'google-analytics-turbolinks'
 gem 'google-analytics-rails'
 gem 'phony_rails'
 gem 'open4'
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'bootstrap_form'
+gem 'premailer-rails'
 
 group :development, :test do
   gem 'byebug'

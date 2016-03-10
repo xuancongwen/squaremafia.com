@@ -1,6 +1,5 @@
 <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
+  <div class="col-md-offset-1 col-md-10">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="table-responsive">
@@ -10,14 +9,18 @@
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
+              <th>Team At Square</th>
+              <th>Time At Square</th>
             </tr>
             </thead>
             <tbody>
             <% @users.each do |u| %>
                 <tr>
-                  <td><%= u.name %></td>
-                  <td><a href="mailto:<%= u.email %>"><%= u.email %></a></td>
-                  <td><a href="tel:<%= u.phone %>"><%= u.phone %></a></td>
+                  <td class="text-nowrap"><%= u.name %></td>
+                  <td class="text-nowrap"><a href="mailto:<%= u.email %>"><%= u.email %></a></td>
+                  <td class="text-nowrap"><a href="tel:<%= u.phone %>"><%= u.phone.try(:phony_formatted, {format: :international}) %></a></td>
+                  <td><%= u.discipline %></td>
+                  <td class="text-nowrap"><%= u.sq_start_date.strftime('%b %Y') %> - <%= u.sq_end_date.strftime('%b %Y') %></td>
                 </tr>
             <% end %>
             </tbody>

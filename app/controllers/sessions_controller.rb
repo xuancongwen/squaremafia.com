@@ -10,7 +10,16 @@ class SessionsController < ApplicationController
 
     user = User.find_by(email: email).try(:authenticate, password)
     if user.present?
-      session[:user_id] = user.id
+      case user.role
+        when 'queued_for_approval'
+          flash[:error] = "Account is queued for approval. Contact admin@squaremafia.com if it's been a few days."
+        when 'disabled'
+          flash[:error] = 'Account disabled. Contact admin@squaremafia.com if you think this is an error.'
+        when /admin|regular/
+          session[:user_id] = user.id
+        else
+          raise 'Something went wrong'
+      end
       redirect_to :root
     else
       flash.now[:error] = 'Bad username or password.'

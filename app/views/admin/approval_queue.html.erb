@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-offset-1 col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Created At</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @users.each do |u| %>
+                <tr>
+                  <td><%= u.created_at %> </td>
+                  <td><%= u.name %></td>
+                  <td><a href="mailto:<%= u.email %>"><%= u.email %></a></td>
+                  <td>
+                    <a href="tel:<%= u.phone %>"><%= u.phone.try(:phony_formatted, {format: :international}) %></a>
+                  </td>
+                  <td>
+                    <div class="btn-group btn-group-xs" role="group">
+                      <a class="btn btn-success" href="<%= admin_change_role_path(u, 'regular') %>">
+                        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                      </a>
+                      <a class="btn btn-danger" href="<%= admin_change_role_path(u, 'disabled') %>">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

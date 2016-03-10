@@ -1,15 +1,23 @@
-
 class UsersController < ApplicationController
   before_filter :require_login, except: [:new, :create]
 
   def index
-    @users = User.all.order(:name)
+    @users = User.enabled.order(:name)
   end
 
   def new
+    @user = User.new
   end
 
   def create
+    @user = User.new(params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation, :discipline, :sq_start_date, :sq_end_date))
+    if verify_recaptcha(model: @user) && @user.save
+      UserMailer.join_email(@user).deliver_later
+      flash[:success] = 'Success! You will be notified when approved.'
+      redirect_to(:root)
+    else
+      render :new
+    end
   end
 
   def show
@@ -26,15 +34,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    begin
-      p = params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
-      old_mail = current_user.email
-      current_user.update_attributes!(p)
-      MailmanSyncJob.perform_later if p['email'] != old_mail
-      flash[:success] = 'Your profile has been updated.'
-    rescue ActiveRecord::RecordInvalid => e
-      flash[:error] = e.message
-    end
-    redirect_to :back
+    @user = current_user
+    p = params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
+    old_mail = @user.email
+    @user.update_attributes(p)
+    MailmanSyncJob.perform_later if p['email'] != old_mail
+    flash.now[:success] = 'Your profile has been updated.' unless @user.errors.any?
+    render :edit
   end
 end
