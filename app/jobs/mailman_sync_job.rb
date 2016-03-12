@@ -11,11 +11,12 @@ class MailmanSyncJob < ActiveJob::Base
     lists.each do |list|
       cmd = "/usr/lib/mailman/bin/sync_members --file - '#{list.name}'"
       Rails.logger.info "Running: #{cmd}"
+      email_list = list.users.enabled.map(&:email).join("\n")
 
       next if Rails.env.development? # no-op in development
 
       status = Open4::popen4(cmd) do |pid, stdin, stdout, stderr|
-        stdin.puts(list.users.map(&:email).join("\n"))
+        stdin.puts(email_list)
         stdin.close
 
         Rails.logger.info('stdout: ' + stdout.read.strip)
