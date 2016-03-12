@@ -11,7 +11,7 @@
             <%= f.phone_field :phone, placeholder: '+1 (415) 555-5555' %>
             <%= f.password_field :password %>
             <%= f.password_field :password_confirmation %>
-            <%= f.text_field :discipline, disabled: true %>
+            <%= f.text_field :discipline, disabled: true, label: 'Role' %>
             <%= f.date_select :sq_start_date, discard_day: true, order: [:month, :year], disabled: true, label: 'First Day' %>
             <%= f.date_select :sq_end_date, discard_day: true, order: [:month, :year], disabled: true, label: 'Last Day' %>
             <div class="form-group">

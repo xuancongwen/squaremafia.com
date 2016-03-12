@@ -25,7 +25,7 @@
 
             <%= f.text_field :name, placeholder: 'Full Name' %>
             <%= f.phone_field :phone, placeholder: '+1 (415) 555-5555' %>
-            <%= f.text_field :discipline, placeholder: 'Engineer, Designer, Comms, Recruiter, Etc.' %>
+            <%= f.text_field :discipline, placeholder: 'Engineer, Designer, Comms, Recruiter, Etc.', label: 'Role' %>
             <%= f.date_select :sq_start_date, discard_day: true, order: [:month, :year], start_year: 2009, end_year: Date.today.year, label: 'First Day' %>
             <%= f.date_select :sq_end_date, discard_day: true, order: [:month, :year], start_year: 2009, end_year: Date.today.year, label: 'Last Day' %>
 
