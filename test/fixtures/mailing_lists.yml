@@ -1,0 +1,24 @@
+mailing_list_1:
+  id: 1
+  name: discuss
+  description: For general discussion.
+  created_at: 2016-03-12 19:49:22.118625000 Z
+  updated_at: 2016-03-12 19:49:22.118625000 Z
+mailing_list_2:
+  id: 2
+  name: eng
+  description: Engineering-focused discussion
+  created_at: 2016-03-12 19:49:22.121682000 Z
+  updated_at: 2016-03-12 19:49:22.121682000 Z
+mailing_list_3:
+  id: 3
+  name: design
+  description: Design-focused discussion
+  created_at: 2016-03-12 19:49:22.124330000 Z
+  updated_at: 2016-03-12 19:49:22.124330000 Z
+mailing_list_4:
+  id: 4
+  name: fatties
+  description: All the fatties at the ice cream truck.
+  created_at: 2016-03-12 19:49:22.126839000 Z
+  updated_at: 2016-03-12 19:49:22.126839000 Z

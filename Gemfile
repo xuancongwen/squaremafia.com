@@ -21,6 +21,7 @@ gem 'premailer-rails'
 
 group :development, :test do
   gem 'byebug'
+  gem 'fixtures_dumper'
 end
 
 group :development do

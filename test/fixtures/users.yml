@@ -1,0 +1,48 @@
+user_1:
+  id: 1
+  name: Admin Admin
+  email: admin@example.com
+  phone: "+14155555555"
+  password_digest: "$2a$10$WPyz20oHRDiGb1pcx1hrEuxPI5SOUDQgei2OwRtajl2wbUuiiJkoG"
+  created_at: 2016-03-12 19:49:22.103280000 Z
+  updated_at: 2016-03-12 19:49:22.103280000 Z
+  role: 2
+  sq_start_date: 2009-01-01
+  sq_end_date: 2016-02-01
+  discipline: Rockstar engineer.
+user_2:
+  id: 2
+  name: Regular Regular
+  email: regular@example.com
+  phone: "+14155555555"
+  password_digest: "$2a$10$4fJVAxNqLJSV7Ig3jhj76OrUo.sjJ6S5nk7Z2xFADTw57gf7OyPUC"
+  created_at: 2016-03-12 19:49:22.269295000 Z
+  updated_at: 2016-03-12 19:49:22.269295000 Z
+  role: 1
+  sq_start_date: 2010-03-01
+  sq_end_date: 2014-01-01
+  discipline: People Team
+user_3:
+  id: 3
+  name: Newbie Newbie
+  email: newbie@example.com
+  phone: "+14155555555"
+  password_digest: "$2a$10$Kxym/GeWmpEmHpfS32iowOcQ0SZDr8tA.CyqOs0USSTzsrrpO7iui"
+  created_at: 2016-03-12 19:49:22.364130000 Z
+  updated_at: 2016-03-12 19:49:22.364130000 Z
+  role: 0
+  sq_start_date: 2015-12-01
+  sq_end_date: 2015-12-01
+  discipline: HIT Squad
+user_4:
+  id: 4
+  name: Disabled Disabled
+  email: disabled@example.com
+  phone: "+14155555555"
+  password_digest: "$2a$10$OMR5QnuiDoeKCTWKdkf3dOTo67HgUcb6s8soiZOcBs.hbhUWqs/4."
+  created_at: 2016-03-12 19:49:22.462891000 Z
+  updated_at: 2016-03-12 19:49:22.462891000 Z
+  role: 3
+  sq_start_date: 2013-05-01
+  sq_end_date: 2016-02-01
+  discipline: Bad person extraordinaire
