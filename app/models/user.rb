@@ -24,5 +24,5 @@ class User < ActiveRecord::Base
 
   enum role: [:queued_for_approval, :regular, :admin, :disabled]
 
-  scope :enabled, -> { where(role: %w(regular admin)) }
+  scope :enabled, -> { where(role: [User.roles[:regular], User.roles[:admin]]) }
 end
