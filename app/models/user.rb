@@ -25,4 +25,8 @@ class User < ActiveRecord::Base
   enum role: [:queued_for_approval, :regular, :admin, :disabled]
 
   scope :enabled, -> { where(role: [User.roles[:regular], User.roles[:admin]]) }
+
+  def approve!
+    update_attributes!(role: :regular) if role == :queued_for_approval
+  end
 end
