@@ -28,10 +28,9 @@
       <ul class="nav navbar-nav">
         <li class="<%= 'active' if current_page?(root_path) %>"><a href="<%= root_path %>">About</a></li>
         <% if logged_in? %>
-            <li class="<%= 'active' if current_page?(edit_user_path(current_user)) %>">
-              <a href="<%= edit_user_path(current_user) %>">Profile</a></li>
-            <li class="<%= 'active' if current_page?(directory_path) %>"><a href="<%= directory_path %>">Directory</a>
-            </li>
+            <li class="<%= 'active' if current_page?(edit_user_path(current_user)) %>"><a href="<%= edit_user_path(current_user) %>">Profile</a></li>
+            <li class="<%= 'active' if current_page?(events_path) %>"><a href="<%= events_path %>">Events</a></li>
+            <li class="<%= 'active' if current_page?(directory_path) %>"><a href="<%= directory_path %>">Directory</a></li>
             <li class="<%= 'active' if current_page?(slack_path) %>"><a href="<%= slack_path %>">Slack</a></li>
             <li class="<%= 'active' if current_page?(mailing_lists_path) %>"><a href="<%= mailing_lists_path %>">Mailing Lists</a></li>
         <% else %>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :users, except: [:destroy]
+  get '/events', to: 'events#index'
   get '/directory', to: 'users#index'
   get '/join', to: 'users#new'
 
