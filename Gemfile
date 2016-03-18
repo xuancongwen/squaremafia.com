@@ -18,6 +18,7 @@ gem 'open4'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'bootstrap_form'
 gem 'premailer-rails'
+gem "simple_calendar", "~> 2.0"
 
 group :development, :test do
   gem 'byebug'
