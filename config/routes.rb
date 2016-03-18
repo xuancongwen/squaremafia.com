@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:destroy]
   get '/events', to: 'events#index'
+  resources :events, except: [:show, :destroy]
   get '/directory', to: 'users#index'
   get '/join', to: 'users#new'
 

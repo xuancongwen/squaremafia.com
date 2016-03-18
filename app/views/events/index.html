@@ -2,12 +2,16 @@
   <div class="col-md-offset-1 col-md-10">
     <div class="panel panel-default">
       <div class="panel-body">
-        <p class="lead">
-          Events!
-        </p>
-        <%= month_calendar do |date| %>
-          <%= date %>
+        <%= month_calendar events: @events do |date, events| %>
+          <strong><%= date.day %></strong>
+
+          <% events.each do |event| %>
+            <div>
+              <span class="small"><%= event.start_time.strftime("%I:%M %p") %></span> - <%= event.name %>
+            </div>
+          <% end %>
         <% end %>
+        <%= link_to "Add Event", new_event_path %>
       </div>
     </div>
   </div>
